@@ -29,6 +29,13 @@ label outside:
     e "It's freezing out here!"
     return
 
+menu: 
+
+"Go back inside.":
+jump stay
+
+"Stay outside.":
+jump outside
 
 label stay:
 
@@ -36,3 +43,14 @@ label stay:
 
     e "Much better. It's warm in here."
     return
+
+menu: 
+
+    "Explore the controls.":
+         
+        scene bg controlroom with dissolve
+        show eileen curious
+
+
+
+
