@@ -99,11 +99,28 @@ menu:
 
                             you "Let's just return to the spaceship before we get eaten."
 
-                            menu :
+
+                        menu:
+                            "Stay with the monster"
+                        jump stay_monster
+
+
                                 "Return to the spaceship"
                             jump return_spaceship
                             
+label stay_monster:
+    
+    sm "1"
+    
+    you "Yep, it's gonna eat us, I don't know why we decided to stay."
+    
+    e "You're right."
 
+    sm "0"
+
+    "The monster ate you."
+
+    return
                     
 
 label stay:
