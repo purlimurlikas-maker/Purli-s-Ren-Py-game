@@ -2,6 +2,7 @@
 define sm = Character("Space Monster")
 define you = Character("You")
 define y = Character("Yellow creature")
+define spacegoblin = Character("Space Goblin")
 
 image destiny = "images/Destiny.png"
 image destiny cold = "images/Destiny-cold.png"
@@ -12,6 +13,8 @@ image planetfar = im.Scale("images/planet?.png", 1920, 1080)
 image planet = im.Scale("images/planet.png", 1920, 1080)
 image space = im.Scale("images/space.gif", 1920, 1080)
 image spacemonster = "images/SpaceMonster.png"
+image goblin = "images/goblin.png"
+image yellowcreature = "images/cute-creature.png"
 
 
 label start:
@@ -94,22 +97,20 @@ label talk_space_monster:
     sm "7757644332312358707078552341"
     d "It's speaking in numbers, what could that mean?"
     you "I don't know, I think we should go back to the spaceship."
-    d "I don't know, maybe let's try to understand what it's telling us?"
+    d "Maybe let's try to understand what it's telling us?"
 
     menu:
         "Try to understand what the monster is telling you.":
             jump try_to_understand
-        "Go back to the spaceship":
-            jump return_spaceship
 
 
 label try_to_understand:
     scene space
     show spacemonster
     sm "75685754434532434765658769867987"
-    you "I think it's trying to eat us."
-    d "I don't know about that."
-    you "Let's just return to the spaceship before we get eaten."
+    d "I think it's trying to eat us."
+    you "I don't know about that."
+    d "Let's just return to the spaceship before we get eaten."
 
     menu:
         "Stay with the monster":
@@ -130,25 +131,63 @@ label stay_monster:
     scene space
     show destiny shocked
     
-    sm "1"
-    you "Yep, it's gonna eat us, I don't know why we decided to stay."
-    d "You're right."
-    sm "0"
-    "The monster ate you."
+    you "I'll try petting it."
+    d "No! Don't, it might sense danger."
+
+    menu:
+        "Pet the creature":
+            jump pet
+        "Don't pet it":
+            jump dont_pet
+
+label pet:
+    scene space
+    show spacemonster
+    you "I'll try petting the creature."
+    d "Okay, but if we get eaten, it's your fault."
+    sm "388888888"
+    "Destiny was right"
+    "You shouldn't have pet the creature"
+    "You didn't listen"
+    "Both of you were eaten"
 
     return
+
+label dont_pet:
+    scene space 
+    show spacemonster
+    sm "8383940843708270870987493480787295028663976"
+    scene space
+    show destiny
+    d "I think it's harmless unless we go very close to it."
+    you "Me too."
+    d "Let's return to the spaceship, shall we?"
+    you "Okay. Bye, space monster."
+    d "Have a nice unit of time, Space Monster."
+    scene space
+    show spacemonster
+    sm "76408740317483676957683740875473374875402748047"
+
+    menu:
+        "Return to the spaceship.":
+            jump return_spaceship
+
+
+
                     
 
 label stay:
     scene spaceship
     show destiny
     d "It's cozy in here."
+    d "Do you want me to show you around?"
+    you "Sure, why not?"
+    d "Okay, I'll show you the cockpit."
 
     menu:
         "Explore the controls.":
             jump explore
-        "Explore the galaxy.":
-            jump galaxy_explore
+       
 
 
 label explore:
@@ -176,10 +215,9 @@ label stop_pressing:
     d "Phew! That was a close one. I can't believe you almost destroyed the spaceship."
     
     menu:
-        "Continue exploring the galaxy.":
+        "Explore the galaxy.":
             jump galaxy_explore
-        "Return to the spaceship.":
-            jump return_spaceship
+        
 
 label explore_galaxy:
     scene space
@@ -190,8 +228,7 @@ label explore_galaxy:
     menu:
         "Keep exploring.":
             jump keep_exploring_inside
-        "Return to the spaceship.":
-            jump return_spaceship
+       
             
 
 label keep_exploring_inside:
@@ -236,6 +273,8 @@ label explore_planet:
             jump go_see
 
 label go_see:
+    scene planet
+    show yellowcreature
 
     d "Aww! It's a yellow creature. What is it saying?"
 
@@ -254,14 +293,16 @@ label go_see:
             jump keep_exploring_the_planet
 
 label keep_exploring_the_planet:
+    scene planet
+    show destiny
 
-d "Do you think we'll spot another cute creature?"
+    d "Do you think we'll spot another cute creature?"
+    you "I sure hope so. Let's just hope this planet is safe."
 
-you "I sure hope so. Let's just hope this planet is safe."
-
-d "What's that right there? Is that a.. space goblin?"
-
-you "Ehh.. It's probably harmless."
+    scene planet
+    show goblin
+    d "What's that right there? Is that a.. space goblin?"
+    you "Ehh.. It's probably harmless."
 
     menu:
         "Approach it.":
@@ -272,13 +313,9 @@ you "Ehh.. It's probably harmless."
 label approach:
 
     d "I don't think it's harmless."
-
     you "Don't be such a scaredy-cat. Let's try to talk to it."
-
-    goblin "grrrpp"
-
+    spacegoblin "grrrpp"
     "The goblin in fact wasn't harmless"
-
     "You were eaten by it."
 
     return
