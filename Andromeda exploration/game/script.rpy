@@ -1,15 +1,38 @@
 ﻿define e = Character("Eileen", color="#c8ffc8")
 
 
-
-
 label start:
 
     scene bg room with dissolve
 
     show eileen happy
  
-    e "Hello, and welcome to my game!"
+    e "Hello, and welcome to the Andromeda Exploration game!"
     e "I've been waiting for someone to talk to."
 
+    return
+
+menu:
+ 
+    "Exit the spaceship.":
+        jump outside
+ 
+    "Stay in the spaceship.":
+        jump stay
+
+
+label outside:
+
+    scene bg whitehouse with dissolve
+    show eileen concerned
+
+    e "It's freezing out here!"
+    return
+
+
+label stay:
+
+    show eileen happy
+
+    e "Much better. It's warm in here."
     return
