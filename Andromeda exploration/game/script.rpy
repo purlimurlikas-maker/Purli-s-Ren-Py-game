@@ -244,9 +244,9 @@ label keep_exploring_inside:
         "Keep flying.":
             jump keep_flying_inside
 
-            label keep_flying_inside:
-                d "I guess we can keep flying in the spaceship for a bit longer."
-                return
+label keep_flying_inside:
+    d "I guess we can keep flying in the spaceship for a bit longer."
+    return
 
 label land_planet:
     scene planet
