@@ -1,6 +1,7 @@
 ﻿define d = Character("Destiny")
 define sm = Character("Space Monster")
 define you = Character("You")
+define y = Character("Yellow creature")
 
 image destiny = "images/Destiny.png"
 image destiny cold = "images/Destiny-cold.png"
@@ -10,7 +11,7 @@ image controls = im.Scale("images/controls.jpg", 1920, 1080)
 image planetfar = im.Scale("images/planet?.png", 1920, 1080)
 image planet = im.Scale("images/planet.png", 1920, 1080)
 image space = im.Scale("images/space.gif", 1920, 1080)
-image space monster = "images/SpaceMonster.png"
+image spacemonster = "images/SpaceMonster.png"
 
 
 label start:
@@ -18,6 +19,7 @@ label start:
     show destiny
     d "Hello, and welcome to the Andromeda Exploration game!"
     d "I've been waiting for someone to talk to."
+    d "What do you want to do?"
 
     menu:
         "Exit the spaceship.":
@@ -73,7 +75,7 @@ label keep_flying_outside:
 
 label see_space_monster:
     scene space
-    show space monster
+    show spacemonster
     d "Woah, that monster is huge! It looks cute though. I think it wants to be friends with us."
     d "Should we go talk to it?"
 
@@ -87,7 +89,7 @@ label see_space_monster:
                     
 label talk_space_monster:
     scene space
-    show space monster
+    show spacemonster
     d "Hiii, Space Monster, we come from another Galaxy, would you like to be friends with us?"
     sm "7757644332312358707078552341"
     d "It's speaking in numbers, what could that mean?"
@@ -103,7 +105,7 @@ label talk_space_monster:
 
 label try_to_understand:
     scene space
-    show space monster
+    show spacemonster
     sm "75685754434532434765658769867987"
     you "I think it's trying to eat us."
     d "I don't know about that."
@@ -118,8 +120,8 @@ label try_to_understand:
 label return_spaceship:
     scene spaceship
     show destiny
-    d "We should head back to the spaceship, it might be dangerous out here."
-    d "I can't wait to tell everyone about our adventure!"
+    d "It sure was fun exploring with you, and talking to you."
+    d "Till the next adventure, comrade."
 
     return
 
@@ -216,21 +218,67 @@ label land_planet:
 
     d "I wonder what kind of creatures live here."
 
+    d "Should we go and see?"
+
     menu: 
         "Explore the planet.":
             jump explore_planet
 
-        "Return to the spaceship.":
-            jump return_spaceship
 
 label explore_planet:
     scene planet
     show destiny
     d "Isn't this planet fascinating? Look at all the beautiful nature."
-    d "It's really cool, but I think we should return to the spaceship, atleast for now, it could be dangerous out there."
+    d "What's that right there?"
 
     menu: 
+        "Go and see.":
+            jump go_see
+
+label go_see:
+
+    d "Aww! It's a yellow creature. What is it saying?"
+
+    y "mrrrppp"
+
+    d "Isn't it so cute?"
+
+    you "It sure is."
+
+    d "I don't think we can take it with us though, it belongs on this planet."
+
+    you "I agree."
+
+    menu:
+        "Keep exploring the planet":
+            jump keep_exploring_the_planet
+
+label keep_exploring_the_planet:
+
+d "Do you think we'll spot another cute creature?"
+
+you "I sure hope so. Let's just hope this planet is safe."
+
+d "What's that right there? Is that a.. space goblin?"
+
+you "Ehh.. It's probably harmless."
+
+    menu:
+        "Approach it.":
+            jump approach
         "Return to the spaceship.":
             jump return_spaceship
 
+label approach:
 
+    d "I don't think it's harmless."
+
+    you "Don't be such a scaredy-cat. Let's try to talk to it."
+
+    goblin "grrrpp"
+
+    "The goblin in fact wasn't harmless"
+
+    "You were eaten by it."
+
+    return
