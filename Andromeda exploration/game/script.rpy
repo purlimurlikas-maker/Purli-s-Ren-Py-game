@@ -30,12 +30,11 @@ label outside:
     return
 
 menu: 
+    "Go back inside the spaceship.":
+        jump stay
 
-"Go back inside.":
-jump stay
-
-"Stay outside.":
-jump outside
+    "Explore the galaxy.":
+        jump explore
 
 label stay:
 
@@ -45,7 +44,7 @@ label stay:
     return
 
 menu: 
-
+    
     "Explore the controls.":
          
         scene bg controlroom with dissolve
