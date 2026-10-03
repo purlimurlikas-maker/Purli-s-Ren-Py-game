@@ -35,7 +35,7 @@ menu:
     "Keep exploring.":
             jump keep_exploring
 
-        "Return to the spaceship.":
+    "Return to the spaceship.":
             jump return_spaceship
 
             label keep_exploring:
