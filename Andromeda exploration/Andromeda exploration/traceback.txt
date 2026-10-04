@@ -1,0 +1,40 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+RuntimeError: can't start new thread
+
+-- Full Traceback ------------------------------------------------------------
+
+Traceback (most recent call last):
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
+    python hide:
+  File "renpy/ast.py", line 1193, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1276, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
+    python hide:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
+    ui.interact()
+    ~~~~~~~~~~~^^
+  File "renpy/ui.py", line 306, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2117, in interact
+    self.start()
+    ~~~~~~~~~~^^
+  File "renpy/display/core.py", line 909, in start
+    renpy.audio.audio.init()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "renpy/audio/audio.py", line 1156, in init
+    periodic_thread.start()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "lib/python3.12/threading.py", line 994, in start
+RuntimeError: can't start new thread
+
+macOS-26.3-arm64-arm-64bit arm64
+Ren'Py 8.5.3.26051504
+Andromeda exploration 1.0
+Sun Oct  4 15:01:21 2026
