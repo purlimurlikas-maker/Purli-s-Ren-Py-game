@@ -18,4 +18,4 @@ https://www.pinterest.com/pin/183169909841560900/</p>
 <p>People on Hack Club also answered some of the questions I had :)</p>
 
 <p> Yap that might help answer some questions </p>
-Everything was working fine until the publishing part, I had most issues with that. I got it all sorted out, but some of my git commits might be weird because I made new folders, which I didn't need, and it all turned into a big mess. The good thing is - the game works now, so yay :).
+Everything was working fine until the publishing part, I had most issues with that. I got it all sorted out, but some of my git commits might be weird because I made new folders, which I didn't need, and it all turned into a big mess. The good thing is - the game works now, so yay :). Oh yeah, and if the game happens to throw up an error, press rollback, and try picking the option again, it should work just fine.
